@@ -13,16 +13,16 @@
 # **Background Context**
 Write your own `printf` function.
 
-# **Resources
-### **Read or watch:
+# **Resources**
+### **Read or watch:**
 * [Secrets of printf](https://www.academia.edu/10297206/Secrets_of_printf_)
 * **Group Projects** concept page *(Don’t forget to read this)*
 * **Flowcharts**
-### **man or help:
+### **man or help:**
 * `printf (3)`
 
-# **Requirements
-## **General
+# **Requirements**
+## **General**
 * Allowed editors: `vi`, `vim`, `emacs`
 * All your files will be compiled on Ubuntu 20.04 LTS using `gcc`, using the options `-Wall -Werror -Wextra -pedantic -std=gnu89`
 * All your files should end with a new line
@@ -36,11 +36,11 @@ Write your own `printf` function.
 * All your header files should be include guarded
 * Note that we will not provide the `_putchar` function for this project
 
-## **GitHub
+## **GitHub**
 **There should be one project repository per group. The other members do not fork or clone the project to ensure only one of the team has the repository in their github account otherwise you risk scoring 0%**
 
-# **More Info
-## **Authorized functions and macros
+# **More Info**
+## **Authorized functions and macros**
 * `write` (`man 2 write`)
 * `malloc` (`man 3 malloc`)
 * `free` (`man 3 free`)
@@ -49,7 +49,7 @@ Write your own `printf` function.
 * `va_copy` (`man 3 va_copy`)
 * `va_arg` (`man 3 va_arg`)
 
-## **Compilation
+## **Compilation**
 * Your code will be compiled this way:
 	~~~~
 $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c
@@ -58,8 +58,8 @@ $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c
 * As a consequence, be careful not to push any c file containing a `main` function in the root directory of your project (you could have a `test` folder containing all your tests files including `main` functions)
 * Our main files will include your main header file (`main.h`): `#include main.h`
 * You might want to look at the gcc flag `-Wno-format` when testing with your `_printf` and the standard `printf`. Example of test file that you could use:
-		~~~~
-alex@ubuntu:~/c/printf$ cat main.c
+	```C
+	alex@ubuntu:~/c/printf$ cat main.c
 #include <limits.h>
 #include <stdio.h>
 #include "main.h"
@@ -131,11 +131,12 @@ Len:[12]
 Unknown:[%r]
 Unknown:[%r]
 alex@ubuntu:~/c/printf$
-		~~~~
+	```
+
 * We strongly encourage you to work all together on a set of tests
 * If the task does not specify what to do with an edge case, do the same as `printf`
 
-## **Copyright - Plagiarism
+## **Copyright - Plagiarism**
 * You are tasked to come up with solutions for the tasks below yourself to meet with the above learning objectives.
 * You will not be able to meet the objectives of this or any following project by copying and pasting someone else’s work.
 * You are not allowed to publish any content of this project.
