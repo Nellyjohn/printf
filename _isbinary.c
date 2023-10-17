@@ -8,10 +8,11 @@
 
 char *_isbinary(va_list list)
 {
-	int j = 0, bin = 1, val;
+	int j = 0, bin = 1, val, i;
 	char *str;
 
 	val = va_arg(list, int);
+	i = val;
 	str = malloc(sizeof(char) * 33);
 	if (!str)
 		return (NULL);
@@ -20,6 +21,7 @@ char *_isbinary(va_list list)
 		str[0] = 1 + '\0';
 		j++;
 		val *= -1;
+		i *= -1;
 	}
 
 	while (val > 1)
@@ -29,8 +31,8 @@ char *_isbinary(va_list list)
 	}
 	while (bin > 0)
 	{
-		str[j++] = ((val / bin) + '0');
-		val = val % bin;
+		str[j++] = ((i / bin) + '0');
+		i = i % bin;
 		bin /= 2;
 	}
 	str[j] = '\0';
