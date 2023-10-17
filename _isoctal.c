@@ -12,7 +12,7 @@ char *_isoctal(va_list list)
 	char *str;
 
 	val = va_arg(list, int);
-	str = mallac(sizeof(char) * 12);
+	str = malloc(sizeof(char) * 12);
 
 	if (!str)
 		return (NULL);

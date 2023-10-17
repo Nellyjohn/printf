@@ -66,5 +66,5 @@ char *_is_unsignedint(va_list list)
 		}
 		num /= 10;
 	}
-	return (unisgned_to_string(val, len, num));
+	return (unsigned_to_string(val, len, num));
 }

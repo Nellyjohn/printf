@@ -13,9 +13,8 @@ char* (*select_function(char c))(va_list)
 	print_option chart[] = {
 		{'c', _ischar},
 		{'s', _istring},
-		{'%', _ispercent},
 		{'d', _isinteger},
-		{'i', _isint},
+	/*	{'i', _isint},*/
 		{'b', _isbinary},
 		{'u', _is_unsignedint},
 		{'o', _isoctal},

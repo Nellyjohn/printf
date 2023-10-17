@@ -20,7 +20,7 @@ char *_is_hex_lower(va_list list)
 		return (NULL);
 	if (val < 0)
 	{
-		s[0] = 1 + '0';
+		str[0] = 1 + '0';
 		i++;
 		val *= -1;
 	}

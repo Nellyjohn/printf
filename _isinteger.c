@@ -50,7 +50,6 @@ char *int_to_string(int num, int len, int digit)
   */
 char *_isinteger(va_list list)
 {
-	char *str;
 	int num;
 	int len = 0;
 	int val = 1;
