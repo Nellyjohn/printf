@@ -8,10 +8,12 @@
 
 char *_isoctal(va_list list)
 {
-	int i = 0, oct = 1, val;
+	int i = 0, oct = 1;
+	int val, j;
 	char *str;
 
 	val = va_arg(list, int);
+	j = val;
 	str = malloc(sizeof(char) * 12);
 
 	if (!str)
@@ -21,6 +23,7 @@ char *_isoctal(va_list list)
 		str[0] = 1 + '0';
 		i++;
 		val *= -1;
+		j *= -1;
 	}
 
 	while (val > 1)
@@ -30,8 +33,8 @@ char *_isoctal(va_list list)
 	}
 	while (oct > 0)
 	{
-		str[i++] = (val / oct + '0');
-		val = val % oct;
+		str[i++] = (j / oct + '0');
+		j %= oct;
 		oct /= 8;
 	}
 	str[i] = '\0';
