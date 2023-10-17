@@ -63,7 +63,7 @@ char *_isinteger(va_list list)
 	if (num == 0)
 	{
 		len++;
-		return (int_to_string(val, len));
+		return (int_to_string(len, val));
 	}
 
 	while (num != 0)
@@ -76,5 +76,5 @@ char *_isinteger(va_list list)
 		num /= 10;
 	}
 
-	return (int_to_string(val, len));
+	return (int_to_string(len, val));
 }
