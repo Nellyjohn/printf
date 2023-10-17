@@ -14,6 +14,13 @@ char* (*select_function(char c))(va_list)
 		{'c', _ischar},
 		{'s', _istring},
 		{'%', _ispercent},
+		{'d', _isinteger},
+		{'i', _isint},
+		{'b', _isbinary},
+		{'u', _is_unsignedint},
+		{'o', _isoctal},
+		{'x', _is_hex_lower},
+		{'X', _is_hex_upper},
 		{'\0', NULL}
 	};
 
