@@ -12,10 +12,11 @@
 
 typedef struct options
 {
-        char id;
-        char* (*func)(va_list);
+	char id;
+	char* (*func)(va_list);
 } print_option;
 
+/* printf helper functions */
 char* (*select_function(char c))(va_list);
 char *make_buffer(void);
 void print_buffer(char *ptr, int len, va_list list);
