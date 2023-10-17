@@ -21,21 +21,20 @@ char *_is_hex_lower(va_list list)
 		return (NULL);
 	if (val < 0)
 	{
-		str[0] = 1 + '0';
+		str[0] = '-';
 		i++;
 		val *= -1;
 		j *= -1;
 	}
 
-	while (val > 1)
+	while (h <= val / 16)
 	{
-		val /= 16;
 		h *= 16;
 	}
 
 	while (h > 0)
 	{
-		str[i++] = arr[j / 16];
+		str[i++] = arr[j / h];
 		j %= 16;
 		h /= 16;
 	}
