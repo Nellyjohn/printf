@@ -14,7 +14,7 @@ char* (*select_function(char c))(va_list)
 		{'c', _ischar},
 		{'s', _istring},
 		{'d', _isinteger},
-	/*	{'i', _isint},*/
+		{'i', _isinteger},
 		{'b', _isbinary},
 		{'u', _is_unsignedint},
 		{'o', _isoctal},
