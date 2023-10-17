@@ -6,7 +6,7 @@
  * Return: return string
  */
 
-char _ischar(va_list list)
+char *_ischar(va_list list)
 {
 	char *str, alpha;
 

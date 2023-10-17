@@ -42,7 +42,7 @@ char _strlen(char *s)
   * @list: list of arguments
   * Return: copy of the string
   */
-char _istring(va_list list)
+char *_istring(va_list list)
 {
 	char *str;
 	char *s = va_arg(list, char *);
