@@ -1,5 +1,11 @@
 #include "main.h"
 
+/**
+ * _is_hex_lower - function that conver int to hex lower
+ * @list: argument list
+ * Return: converted hex
+ */
+
 char *_is_hex_lower(va_list list)
 {
 	int i = 0, h = 1, val;
