@@ -22,7 +22,7 @@ char *unsigned_to_string(unsigned int num, unsigned int len,
 
 	while (num > 0)
 	{
-		str[index] = ((digit / num) + '\0');
+		str[index] = ((digit / 10) + '\0');
 		digit = num % 10;
 		num /= 10;
 		index++;
