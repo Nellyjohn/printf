@@ -4,7 +4,6 @@ char *int_to_string(int len, int digit);
 
 /**
   * int_to_string - converts an integer to string
-  * @num: multiples of 10
   * @len: integer length
   * @digit: integer to be converted
   * Return: converted string
