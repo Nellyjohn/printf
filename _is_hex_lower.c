@@ -9,11 +9,12 @@
 char *_is_hex_lower(va_list list)
 {
 	int i = 0, h = 1, val;
+	long int j;
 	char *str;
-	char arr[] = "123456789abcdef";
+	char arr[] = "0123456789abcdef";
 
 	val = va_arg(list, int);
-
+	j = val;
 	str = malloc(sizeof(char) * 17);
 
 	if (!str)
@@ -23,6 +24,7 @@ char *_is_hex_lower(va_list list)
 		str[0] = 1 + '0';
 		i++;
 		val *= -1;
+		j *= -1;
 	}
 
 	while (val > 1)
@@ -33,8 +35,8 @@ char *_is_hex_lower(va_list list)
 
 	while (h > 0)
 	{
-		str[i++] = arr[val % 16];
-		val %= 16;
+		str[i++] = arr[j / 16];
+		j %= 16;
 		h /= 16;
 	}
 	str[i] = '\0';
