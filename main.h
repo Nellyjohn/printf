@@ -26,6 +26,7 @@ char *_istring(va_list list);
 char *_ispercent(void);
 char *_isinteger(va_list list);
 char *_isbinary(va_list list);
+char *_is_unsignedint(va_list list);
 int _printf(const char *format, ...);
 
 #endif
