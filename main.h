@@ -23,6 +23,7 @@ void print_buffer(char *ptr, int len, va_list list);
 char *_ischar(va_list list);
 char *_istring(va_list list);
 char *_ispercent(void);
+char *_isinteger(va_list list);
 int _printf(const char *format, ...);
 
 #endif
