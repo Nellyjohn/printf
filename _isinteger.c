@@ -1,6 +1,6 @@
 #include "main.h"
 
-char *int_to_string(int num, int len, int digit);
+char *int_to_string(int len, int digit);
 
 /**
   * int_to_string - converts an integer to string
@@ -9,37 +9,42 @@ char *int_to_string(int num, int len, int digit);
   * @digit: integer to be converted
   * Return: converted string
   */
-char *int_to_string(int num, int len, int digit)
+char *int_to_string(int len, int digit)
 {
 	char *str;
-	int index = 0;
+	int isNegative = 0;
+	int index, i, j;
+	char temp;
 
 	str = malloc(sizeof(char) * (len + 2));
 	if (!str)
 		return (NULL);
 	if (digit < 0)
 	{
-		str[0] = '-';
-		index++;
+		digit = -digit;
+		isNegative = 1;
 	}
 
-	while (digit < 0)
+	index = 0;
+	while (digit != 0)
 	{
-		str[index] = ((digit / num) * -1 + '\0');
-		digit = digit % num;
-		num /= 10;
-		index++;
+		str[index++] = digit % 10 + '0';
+		digit = digit / 10;
 	}
+	if (isNegative)
+		str[index++] = '-';
 
-	while (num > 1)
-	{
-		str[index] = ((digit / num) + '\0');
-		digit = digit % num;
-		num /= 10;
-		index++;
-	}
 	str[index] = '\0';
 
+	i = 0;
+	while ((j = index - 1) && i < j)
+	{
+		temp = str[i];
+		str[i] = str[j];
+		str[j] = temp;
+		i++;
+		j--;
+	}
 	return (str);
 }
 
@@ -58,7 +63,7 @@ char *_isinteger(va_list list)
 	if (num == 0)
 	{
 		len++;
-		return (int_to_string(val, len, num));
+		return (int_to_string(val, len));
 	}
 
 	while (num != 0)
@@ -71,5 +76,5 @@ char *_isinteger(va_list list)
 		num /= 10;
 	}
 
-	return (int_to_string(val, len, num));
+	return (int_to_string(val, len));
 }

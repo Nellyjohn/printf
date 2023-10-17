@@ -7,6 +7,6 @@
  */
 int main(void)
 {
-    _printf("%s\n", "Hello World");
+    _printf("%d\n", 981);
     return (0);
 }
