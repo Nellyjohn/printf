@@ -13,7 +13,7 @@ char *_strcpy(char *str, char *s)
 {
 	int index = 0;
 
-	while (s != '\0')
+	while (s[index] != '\0')
 	{
 		str[index] = s[index];
 		index++;
@@ -31,7 +31,7 @@ char _strlen(char *s)
 {
 	int len = 0;
 
-	while (s != '\0')
+	while (s[len] != '\0')
 		len++;
 
 	return (len);
