@@ -37,7 +37,7 @@ char *int_to_string(int len, int digit)
 	str[index] = '\0';
 
 	i = 0;
-	while ((j = index - 1) && i < j)
+	while ((j = index - 1), i < j)
 	{
 		temp = str[i];
 		str[i] = str[j];
@@ -57,24 +57,22 @@ char *_isinteger(va_list list)
 {
 	int num;
 	int len = 0;
-	int val = 1;
+	int val = 1, temp;
 
 	num = va_arg(list, int);
+	val = num;
 	if (num == 0)
 	{
 		len++;
-		return (int_to_string(len, val));
+		return (int_to_string(len, num));
 	}
-
-	while (num != 0)
+	temp = num;
+	while (temp != 0)
 	{
 		len++;
-		if (len > 1)
-		{
-			val *= 10;
-		}
-		num /= 10;
+		val *= 10;
+		temp /= 10;
 	}
 
-	return (int_to_string(len, val));
+	return (int_to_string(len, num));
 }
