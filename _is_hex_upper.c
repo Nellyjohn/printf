@@ -9,12 +9,12 @@ char *_is_hex_upper(va_list list)
 {
 	int i = 0;
 	int h = 1;
-	int val;
+	int val, j;
 	char *str;
 	char arr[] = "0123456789ABCDEF";
 
 	val = va_arg(list, int);
-
+	j = val;
 	str = malloc(sizeof(char) * 17);
 	if (!str)
 		return (NULL);
@@ -26,16 +26,15 @@ char *_is_hex_upper(va_list list)
 		val *= -1;
 	}
 
-	while (val > 1)
+	while (h <= val / 16)
 	{
-		val /= 16;
 		h *= 16;
 	}
 
 	while (h > 0)
 	{
-		str[i++] = arr[val % 16];
-		val %= 16;
+		str[i++] = arr[j / h];
+		j %= h;
 		h /= 16;
 	}
 	str[i] = '\0';
