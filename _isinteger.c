@@ -15,6 +15,16 @@ char *int_to_string(int len, int digit)
 	int index, i, j;
 	char temp;
 
+	if (digit == 0)
+	{
+		str = malloc(sizeof(char) * 2);
+		if (!str)
+			return (NULL);
+		str[0] = '0';
+		str[1] = '\0';
+		return (str);
+	}
+
 	str = malloc(sizeof(char) * (len + 2));
 	if (!str)
 		return (NULL);
