@@ -36,7 +36,8 @@ char *int_to_string(int len, int digit)
 	str[index] = '\0';
 
 	i = 0;
-	while ((j = index - 1), i < j)
+	j = index - 1;
+	while (i < j)
 	{
 		temp = str[i];
 		str[i] = str[j];
@@ -69,7 +70,7 @@ char *_isinteger(va_list list)
 	while (temp != 0)
 	{
 		len++;
-		val *= 10;
+		val /= 10;
 		temp /= 10;
 	}
 

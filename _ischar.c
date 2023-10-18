@@ -17,7 +17,7 @@ char *_ischar(va_list list)
 		alpha = '\0';
 	}
 
-	str = malloc(sizeof(char) * 2);
+	str = malloc(1);
 
 	if (!str)
 	{
