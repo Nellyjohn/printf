@@ -40,22 +40,22 @@ int _printf(const char *format, ...)
 
 	while (format[i] != '\0')
 	{
-		if (format[i] != '%') /* copy format into buffer until '%' */
+		if (format[i] != '%')
 		{
 			len = buffer_overflow_check(buffer, len);
 			buffer[len++] = format[i++];
 			size++;
 		}
-		else /* if %, find function */
+		else
 		{
 			i++;
-			if (format[i] == '\0') /* handle single ending % */
+			if (format[i] == '\0')
 			{
 				va_end(list);
 				free(buffer);
 				return (-1);
 			}
-			if (format[i] == '%') /* handle double %'s */
+			if (format[i] == '%')
 			{
 				len = buffer_overflow_check(buffer, len);
 				buffer[len++] = format[i];
@@ -63,14 +63,14 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
-				fn = select_function(format[i]); /* grab function */
-				if (fn == NULL)  /* handle fake id */
+				fn = select_function(format[i]);
+				if (fn == NULL)
 				{
 					len = buffer_overflow_check(buffer, len);
 					buffer[len++] = '%'; size++;
 					buffer[len++] = format[i]; size++;
 				}
-				else /* return string, copy to buffer */
+				else
 				{
 					str = fn(list);
 					if (str == NULL)
