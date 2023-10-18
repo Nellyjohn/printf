@@ -1,26 +1,12 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "main.h"
 
 /**
  * main - Entry point
  *
- * Return: 0 on success, error code otherwise
+ * Return: Always 0
  */
 int main(void)
 {
-	int len, len2;
-
-	len = _printf("%d - %d = %d\n", 1024, 2048, -1024);
-	len2 = printf("%d - %d = %d\n", 1024, 2048, -1024);
-	_printf("%R", "ABCD");
-	_printf("%r", "abcd");
-	fflush(stdout);
-	if (len != len2)
-	{
-		printf("Lengths differ.\n");
-		fflush(stdout);
-		return (1);
-	}
-	return (0);
+    _printf("%S\n", "Best\nSchool");
+    return (0);
 }

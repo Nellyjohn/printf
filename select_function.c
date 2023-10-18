@@ -20,6 +20,7 @@ char* (*select_function(char c))(va_list)
 		{'o', _isoctal},
 		{'x', _is_hex_lower},
 		{'X', _is_hex_upper},
+		{'S', _is_special_string},
 		{'r', _isreversed_string},
 		{'R', _isrot13},
 		{'\0', NULL}

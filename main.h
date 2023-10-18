@@ -33,6 +33,7 @@ char *_is_unsignedint(va_list list);
 char *_isoctal(va_list list);
 char *_is_hex_lower(va_list list);
 char *_is_hex_upper(va_list list);
+char *_is_special_string(va_list list);
 char *_isreversed_string(va_list list);
 char *_isrot13(va_list list);
 int _printf(const char *format, ...);
