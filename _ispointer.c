@@ -11,6 +11,7 @@ char *_ishex(unsigned long int num)
     long int i, cn = 0;
     unsigned long int tem = num;
     char *result, *ptr;
+	int digit;
 
     while (num / 16 != 0)
     {
@@ -24,9 +25,10 @@ char *_ishex(unsigned long int num)
 
     ptr = result;
 
-    for (i = 0; i < cn; i++)
+    for (i = cn - 1; i >= 0; i--)
     {
-        ptr[i] = (tem % 16 < 10) ? (tem % 16 + '0') : (tem % 16 + 'A' - 10);
+		digit = tem % 16;
+        ptr[i] = (digit < 10) ? (digit + '0') : (digit + 'a' - 10);
         tem = tem / 16;
     }
     ptr[cn] = '\0';
