@@ -17,10 +17,11 @@ int buffer_overflow_check(char *buffer, int len)
 }
 
 /**
- * _printf - mini printf version
- * @format: initial string with all identifiers
- * Return: strings with identifiers expanded
+ * _printf - custome printf function
+ * @format: string to be printed with it's idntifiers
+ * Return: string
  */
+
 int _printf(const char *format, ...)
 {
 	int len = 0, size = 0, i = 0, j = 0;
