@@ -8,36 +8,26 @@
 
 char *_is_hex_lower(va_list list)
 {
-	int i = 0, h = 1, val;
-	long int j;
-	char *str;
-	char arr[] = "0123456789abcdef";
+	int num = va_arg(list, int);
+    char* hex_str = (char*)malloc(9);
+	const char* hex_chars = "0123456789abcdef";
+	int i;
 
-	val = va_arg(list, int);
-	j = val;
-	str = malloc(sizeof(char) * 17);
-
-	if (!str)
-		return (NULL);
-	if (val < 0)
+    if (hex_str == NULL)
 	{
-		str[0] = '-';
-		i++;
-		val *= -1;
-		j *= -1;
-	}
+        return (NULL);
+    }
 
-	while (h <= val / 16)
-	{
-		h *= 16;
-	}
+    for (i = 0; i < 8; i++) {
+        hex_str[i] = hex_chars[(num >> (28 - 4*i)) & 0xF];
+    }
+    hex_str[8] = '\0';
 
-	while (h > 0)
-	{
-		str[i++] = arr[j / h];
-		j %= 16;
-		h /= 16;
-	}
-	str[i] = '\0';
-	return (str);
+    return (hex_str);
 }
+
+
+
+
+
+
