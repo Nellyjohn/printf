@@ -10,13 +10,9 @@
 int main(void)
 {
 	int len, len2;
-	void *p = (void *)0x7fff5100b6f8;
-	void *p2 = (void *)0x7faf51f0f608;
-	void *p3 = (void *)0x6ff42510b6f8;
-	void *p4 = (void *)0x7fff510236f8;
 
-	len = _printf("Can you print several addresses?\n%p,%p,%p,%p\nNice!\n", p, p2, p3, p4);
-	len2 = printf("Can you print several addresses?\n%p,%p,%p,%p\nNice!\n", p, p2, p3, p4);
+	len = _printf("%u", 0);
+	len2 = printf("%u", 0);
 	fflush(stdout);
 	if (len != len2)
 	{
