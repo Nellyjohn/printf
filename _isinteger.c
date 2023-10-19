@@ -3,11 +3,11 @@
 char *int_to_string(int len, int digit);
 
 /**
-  * int_to_string - converts an integer to string
-  * @len: integer length
-  * @digit: integer to be converted
-  * Return: converted string
-  */
+ * int_to_string - converts an integer to string
+ * @len: integer length
+ * @digit: integer to be converted
+ * Return: converted string
+ */
 char *int_to_string(int len, int digit)
 {
 	char *str;
@@ -29,24 +29,24 @@ char *int_to_string(int len, int digit)
 	if (!str)
 		return (NULL);
 	if (digit == INT_MIN)
-    {
-        str = malloc(sizeof(char) * 12);
-        if (!str)
-            return (NULL);
-        str[0] = '-';
-        str[1] = '2';
-        str[2] = '1';
-        str[3] = '4';
-        str[4] = '7';
-        str[5] = '4';
-        str[6] = '8';
-        str[7] = '3';
-        str[8] = '6';
-        str[9] = '4';
-        str[10] = '8';
-        str[11] = '\0';
-        return str;
-    }
+	{
+		str = malloc(sizeof(char) * 12);
+		if (!str)
+			return (NULL);
+		str[0] = '-';
+		str[1] = '2';
+		str[2] = '1';
+		str[3] = '4';
+		str[4] = '7';
+		str[5] = '4';
+		str[6] = '8';
+		str[7] = '3';
+		str[8] = '6';
+		str[9] = '4';
+		str[10] = '8';
+		str[11] = '\0';
+		return (str);
+	}
 	if (digit < 0)
 	{
 		digit = -digit;
@@ -78,10 +78,10 @@ char *int_to_string(int len, int digit)
 }
 
 /**
-  * _isinteger - prints an integer
-  * @list: argument list
-  * Return: integer
-  */
+ * _isinteger - prints an integer
+ * @list: argument list
+ * Return: integer
+ */
 char *_isinteger(va_list list)
 {
 	int num;
