@@ -1,42 +1,38 @@
 #include "main.h"
 
 /**
- * _isoctal - function that convert int to octal
+ * _isoctal - function that converts int to octal
  * @list: argument list
  * Return: converted octal number
  */
-
 char *_isoctal(va_list list)
 {
-	int i = 0, oct = 1;
-	int val, j;
-	char *str;
+	int octal[32], i = 0, j;
+	char *result;
+    unsigned int num = va_arg(list, unsigned int);
 
-	val = va_arg(list, int);
-	j = val;
-	str = malloc(sizeof(char) * 12);
+    if (num == 0) {
+        char* result = (char*)malloc(2);
+        result[0] = '0';
+        result[1] = '\0';
+        return result;
+    }
 
-	if (!str)
-		return (NULL);
-	if (val < 0)
-	{
-		str[0] = 1 + '0';
-		i++;
-		val *= -1;
-		j *= -1;
-	}
+    while (num > 0) {
+        octal[i++] = num % 8;
+        num /= 8;
+    }
 
-	while (val > 1)
-	{
-		val /= 8;
-		oct *= 8;
-	}
-	while (oct > 0)
-	{
-		str[i++] = (j / oct + '0');
-		j %= oct;
-		oct /= 8;
-	}
-	str[i] = '\0';
-	return (str);
+    result = (char*)malloc(i + 1);
+
+    if (result == NULL) {
+        return NULL;
+    }
+
+    for (j = i - 1; j >= 0; j--) {
+        result[i - 1 - j] = octal[j] + '0';
+    }
+
+    result[i] = '\0';
+    return result;
 }
