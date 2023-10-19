@@ -48,6 +48,7 @@ char *_ispointer(va_list list)
 	char *str = "(nil)", *hex_str, *result;
 	int i;
 	unsigned long int l;
+
 	ptr = va_arg(list, void *);
 
 	if (!ptr)
@@ -58,18 +59,18 @@ char *_ispointer(va_list list)
 		for (i = 0; str[i] != '\0'; i++)
 			result[i] = str[i];
 		result[i] = '\0';
-		return result;
+		return (result);
 	}
 	l = (unsigned long int)ptr;
 	hex_str = _ishex(l);
 	result = malloc(sizeof(char) * (_strlen(hex_str) + 3));
 	if (!result)
-		return NULL;
+		return (NULL);
 	result[0] = '0';
 	result[1] = 'x';
-    for (i = 0; hex_str[i] != '\0'; i++)
-        result[i + 2] = hex_str[i];
-    result[i + 2] = '\0';
-    free(hex_str);
-    return (result);
+	for (i = 0; hex_str[i] != '\0'; i++)
+		result[i + 2] = hex_str[i];
+	result[i + 2] = '\0';
+	free(hex_str);
+	return (result);
 }
