@@ -17,14 +17,14 @@ char *unsigned_to_string(unsigned int len,
 	char temp;
 
 	if (digit == 0)
-        {
-                str = malloc(sizeof(char) * 2);
-                if (!str)
-                        return (NULL);
-                str[0] = '0';
-                str[1] = '\0';
-                return (str);
-        }
+	{
+		str = malloc(sizeof(char) * 2);
+		if (!str)
+			return (NULL);
+		str[0] = '0';
+		str[1] = '\0';
+		return (str);
+	}
 
 	str = malloc(sizeof(char) * (len + 1));
 	if (!str)
@@ -53,10 +53,10 @@ char *unsigned_to_string(unsigned int len,
 }
 
 /**
-  * _is_unsignedint - prints an unsigned integer
-  * @list: list of arguements
-  * Return: string
-  */
+ * _is_unsignedint - prints an unsigned integer
+ * @list: list of arguements
+ * Return: string
+ */
 char *_is_unsignedint(va_list list)
 {
 	char *str;
