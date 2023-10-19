@@ -8,7 +8,7 @@
 
 char *_isreversed_string(va_list list)
 {
-        char *ptr;
+	char *ptr;
 	char *str;
 	int i = 0, len, j;
 
@@ -22,7 +22,7 @@ char *_isreversed_string(va_list list)
 	if (!ptr)
 		return (NULL);
 
-	for(j = (len - 1); j >= 0; j--)
+	for (j = (len - 1); j >= 0; j--)
 	{
 		ptr[i++] = str[j];
 	}
