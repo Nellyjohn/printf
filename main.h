@@ -48,5 +48,7 @@ char *_ohlongint(va_list list);
 char *_xhshortint(va_list list);
 char *_xhlongint(va_list list);
 int _printf(const char *format, ...);
+char *_xhupperlongint(va_list list);
+char *_xhuppershortint(va_list list);
 
 #endif
