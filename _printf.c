@@ -1,10 +1,8 @@
 #include "main.h"
 
-int _printf(const char *format, ...);
-
 /**
  * buffer_overflow_check - function that check if buffer is above size
- * @ptr: pointer buffer holding string
+ * @buffer: pointer buffer holding string
  * @len: sting position in buffer
  * Return: position
  */
@@ -23,7 +21,7 @@ int buffer_overflow_check(char *buffer, int len)
  * @format: string to be printed with it's idntifiers
  * Return: string
  */
-
+int _printf(const char *format, ...);
 int _printf(const char *format, ...)
 {
 	int len = 0, size = 0, i = 0, j = 0;
