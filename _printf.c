@@ -6,11 +6,11 @@
  * @len: sting position in buffer
  * Return: position
  */
-int buffer_overflow_check(char *buffer, int len)
+int buffer_overflow_check(char *ptr, int len)
 {
 	if (len > 1020)
 	{
-		write(1, buffer, len);
+		write(1, ptr, len);
 		len = 0;
 	}
 	return (len);
@@ -21,7 +21,7 @@ int buffer_overflow_check(char *buffer, int len)
  * @format: string to be printed with it's idntifiers
  * Return: string
  */
-
+int _printf(const char *format, ...);
 int _printf(const char *format, ...)
 {
 	int len = 0, size = 0, i = 0, j = 0;
@@ -59,8 +59,10 @@ int _printf(const char *format, ...)
 				if (fn == NULL)
 				{
 					len = buffer_overflow_check(buffer, len);
-					buffer[len++] = '%', size++;
-					buffer[len++] = format[i], size++;
+					buffer[len++] = '%';
+					size++;
+					buffer[len++] = format[i];
+					size++;
 				}
 				else
 				{
@@ -78,8 +80,11 @@ int _printf(const char *format, ...)
 					while (str[j] != '\0')
 					{
 						len = buffer_overflow_check(buffer, len);
-						buffer[len++] = str[j], size++, j++;
-					} free(str);
+						buffer[len++] = str[j];
+						size++;
+						j++;
+					}
+					free(str);
 				}
 			} i++;
 		}
