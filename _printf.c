@@ -10,7 +10,7 @@ int buffer_overflow_check(char *ptr, int len)
 {
 	if (len > 1020)
 	{
-		write(1, buffer, len);
+		write(1, ptr, len);
 		len = 0;
 	}
 	return (len);
