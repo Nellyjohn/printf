@@ -11,7 +11,18 @@ char *_xhshortint(va_list list)
 	short int num = (short int)va_arg(list, int);
 	char *hex_str = (char *)malloc(9);
 	const char *hex_chars = "0123456789abcdef";
-	int i;
+	int i, leadingZero = 1, resultIndex = 0;
+	char *result;
+
+	if (num == 0)
+	{
+		result = (char *)malloc(2);
+		if (result == NULL)
+			return (NULL);
+		result[0] = '0';
+		result[1] = '\0';
+		return (result);
+	}
 
 	if (hex_str == NULL)
 	{
@@ -22,7 +33,28 @@ char *_xhshortint(va_list list)
 	{
 		hex_str[i] = hex_chars[(num >> (28 - 4 * i)) & 0xF];
 	}
-	hex_str[8] = '\0';
 
-	return (hex_str);
+	result = malloc(9);
+	if (result == NULL)
+	{
+		return (NULL);
+	}
+
+	for (i = 0; i < 8; i++)
+	{
+		if (hex_str[i] == '0' && leadingZero)
+			continue;
+
+		leadingZero = 0;
+		result[resultIndex++] = hex_str[i];
+	}
+
+	if (leadingZero)
+		result[resultIndex++] = '0';
+
+	result[resultIndex] = '\0';
+
+	return result;
+
+
 }
