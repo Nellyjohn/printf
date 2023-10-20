@@ -2,11 +2,11 @@
 
 /**
  * buffer_overflow_check - function that check if buffer is above size
- * @buffer: pointer buffer holding string
+ * @ptr: pointer buffer holding string
  * @len: sting position in buffer
  * Return: position
  */
-int buffer_overflow_check(char *buffer, int len)
+int buffer_overflow_check(char *ptr, int len)
 {
 	if (len > 1020)
 	{
