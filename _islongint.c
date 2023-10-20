@@ -86,7 +86,7 @@ char *_islongint(va_list list)
 	int len = 0;
 	int val = 1, temp;
 
-	num = (long int)va_arg(list, int);
+	num = (long int)va_arg(list, long int);
 	val = num;
 	if (num == 0)
 	{
