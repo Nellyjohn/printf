@@ -1,7 +1,7 @@
 #include "main.h"
 
 char *unsigned_to_strin(unsigned long int len,
-		unsigned int digit);
+		unsigned long int digit);
 
 /**
  * unsigned_to_strin - converts unigned integer to string
@@ -10,7 +10,7 @@ char *unsigned_to_strin(unsigned long int len,
  * Return: converted string
  */
 char *unsigned_to_strin(unsigned long int len,
-		unsigned int digit)
+		unsigned long int digit)
 {
 	char *str;
 	unsigned long int index, i, j;
@@ -64,7 +64,7 @@ char *_uhlongint(va_list list)
 	unsigned long int len = 0;
 	unsigned long int val = 1, temp;
 
-	num = (unsigned long int)va_arg(list, unsigned int);
+	num = (unsigned long int)va_arg(list, unsigned long int);
 	str = malloc(sizeof(char) * (len + 1));
 
 	if (!str)
