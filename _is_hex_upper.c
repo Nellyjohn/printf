@@ -7,37 +7,21 @@
   */
 char *_is_hex_upper(va_list list)
 {
-	int i = 0;
-	int h = 1;
-	int val, j;
-	char *str;
-	char arr[] = "0123456789ABCDEF";
+	int num = va_arg(list, int);
+	char *hex_str = (char *)malloc(9);
+	const char *hex_chars = "0123456789ABCDEF";
+	int i;
 
-	val = va_arg(list, int);
-	j = val;
-	str = malloc(sizeof(char) * 17);
-	if (!str)
+	if (hex_str == NULL)
+	{
 		return (NULL);
-
-	if (val < 0)
-	{
-		str[0] = 1 + '0';
-		i++;
-		val *= -1;
 	}
 
-	while (h <= val / 16)
+	for (i = 0; i < 8; i++)
 	{
-		h *= 16;
+		hex_str[i] = hex_chars[(num >> (28 - 4 * i)) & 0xF];
 	}
+	hex_str[8] = '\0';
 
-	while (h > 0)
-	{
-		str[i++] = arr[j / h];
-		j %= h;
-		h /= 16;
-	}
-	str[i] = '\0';
-
-	return (str);
+	return (hex_str);
 }
