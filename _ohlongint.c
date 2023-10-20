@@ -9,7 +9,7 @@ char *_ohlongint(va_list list)
 {
 	long int octal[32], i = 0, j;
 	char *result;
-	unsigned long int num = (unsigned long int)va_arg(list, unsigned int);
+	unsigned long int num = (unsigned long int)va_arg(list, unsigned long int);
 
 	if (num == 0)
 	{
