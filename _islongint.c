@@ -5,12 +5,12 @@
  * @digit: integer to be converted
  * Return: converted string
  */
-char *int_to_str(int len, long int digit, int isNegative);
-char *int_to_str(int len, long int digit, int isNegative)
+char *int_to_str(int len, long int digit);
+char *int_to_str(int len, long int digit)
 {
 	char *str;
+	int isNegative = 0;
 	int index, i, j;
-	int extraDigit = 1;
 	char temp;
 
 	if (digit == 0)
@@ -23,30 +23,9 @@ char *int_to_str(int len, long int digit, int isNegative)
 		return (str);
 	}
 
-	/*str = malloc(sizeof(char) * (len + 2));
-	if (!str)
-		return (NULL);*/
-	if (digit == LONG_MIN)
-	{
-		digit = LONG_MAX;
-		extraDigit = 1;
-	}
 	str = malloc(sizeof(char) * (len + 2));
 	if (!str)
 		return (NULL);
-	/*str[0] = '-';
-	str[1] = '2';
-	str[2] = '1';
-	str[3] = '4';
-	str[4] = '7';
-	str[5] = '4';
-	str[6] = '8';
-	str[7] = '3';
-	str[8] = '6';
-	str[9] = '4';
-	str[10] = '8';
-	str[11] = '\0';*/
-
 	if (digit < 0)
 	{
 		digit = -digit;
@@ -56,15 +35,7 @@ char *int_to_str(int len, long int digit, int isNegative)
 	index = 0;
 	while (digit != 0)
 	{
-		if (extraDigit == 1)
-		{
-			str[index++] = ((digit % 10 + extraDigit) + '0');
-			extraDigit--;
-		}
-		else
-		{
-			str[index++] = digit % 10 + '0';
-		}
+		str[index++] = digit % 10 + '0';
 		digit = digit / 10;
 	}
 	if (isNegative)
@@ -85,6 +56,7 @@ char *int_to_str(int len, long int digit, int isNegative)
 	return (str);
 }
 
+
 /**
  * _islongint - prints an integer
  * @list: argument list
@@ -95,14 +67,13 @@ char *_islongint(va_list list)
 	long int num;
 	int len = 0;
 	int val = 1, temp;
-	int isNegative = 0;
 
 	num = (long int)va_arg(list, long int);
 	val = num;
 	if (num == 0)
 	{
 		len++;
-		return (int_to_str(len, num, isNegative));
+		return (int_to_str(len, num));
 	}
 	temp = num;
 	while (temp != 0)
@@ -111,11 +82,6 @@ char *_islongint(va_list list)
 		val /= 10;
 		temp /= 10;
 	}
-	if (num < 0)
-	{
-		num = -num;
-		isNegative = 1;
-	}
 
-	return (int_to_str(len, num, isNegative));
+	return (int_to_str(len, num));
 }
