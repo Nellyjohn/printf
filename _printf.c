@@ -1,5 +1,7 @@
 #include "main.h"
 
+int _printf(const char *format, ...);
+
 /**
  * buffer_overflow_check - function that check if buffer is above size
  * @ptr: pointer buffer holding string
@@ -67,8 +69,10 @@ int _printf(const char *format, ...)
 				if (fn == NULL)
 				{
 					len = buffer_overflow_check(buffer, len);
-					buffer[len++] = '%'; size++;
-					buffer[len++] = format[i]; size++;
+					buffer[len++] = '%';
+					size++;
+					buffer[len++] = format[i];
+					size++;
 				}
 				else
 				{
@@ -90,7 +94,8 @@ int _printf(const char *format, ...)
 					{
 						len = buffer_overflow_check(buffer, len);
 						buffer[len++] = str[j];
-						size++; j++;
+						size++;
+						j++;
 					}
 					free(str);
 				}
