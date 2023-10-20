@@ -39,6 +39,7 @@ char *hex_print(unsigned int num)
  * @list: arguments
  * Return: special string as a dynamically allocated string
  */
+char *_is_special_string(va_list list);
 char *_is_special_string(va_list list)
 {
 	char *str, *result, *hex_str, *ptr;
@@ -49,13 +50,15 @@ char *_is_special_string(va_list list)
 	{
 		if (str[i] < 32 || str[i] >= 127)
 		{
-			len += 2;
-			val = str[i];
-			if (val < 16)
-				len++;
-			hex_str = hex_print(val);
-			for (; *hex_str != '\0'; hex_str++)
-				len++;
+			len += 4;
+			/*
+			 * val = str[i];
+			 if (val < 16)
+			 len++;
+			 hex_str = hex_print(val);
+			 for (; *hex_str != '\0'; hex_str++)
+			 len++;
+			 */
 		}
 		else
 			len++;
@@ -68,7 +71,8 @@ char *_is_special_string(va_list list)
 	{
 		if (str[i] < 32 || str[i] >= 127)
 		{
-			*ptr++ = '\\', *ptr++ = 'x';
+			*ptr++ = '\\';
+			*ptr++ = 'x';
 			val = str[i];
 			if (val < 16)
 				*ptr++ = '0';
@@ -77,7 +81,9 @@ char *_is_special_string(va_list list)
 				*ptr++ = *hex_str++;
 		}
 		else
+		{
 			*ptr++ = str[i];
+		}
 	}
 	*ptr = '\0';
 	return (result);

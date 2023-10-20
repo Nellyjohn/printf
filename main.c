@@ -10,9 +10,11 @@
 int main(void)
 {
 	int len, len2;
+	long int l = UINT_MAX;
 
-	len = _printf("%p", NULL);
-	len2 = printf("%p", NULL);
+	l += 1024;
+	len = _printf("%x", l);
+	len2 = printf("%x", l);
 	fflush(stdout);
 	if (len != len2)
 	{

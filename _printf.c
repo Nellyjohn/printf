@@ -2,7 +2,7 @@
 
 /**
  * buffer_overflow_check - function that check if buffer is above size
- * @buffer: pointer buffer holding string
+ * @ptr: pointer buffer holding string
  * @len: sting position in buffer
  * Return: position
  */
@@ -46,7 +46,9 @@ int _printf(const char *format, ...)
 		{ i++;
 			if (format[i] == '\0')
 			{
-				va_end(list), free(buffer), return (-1);
+				va_end(list);
+				free(buffer);
+				return (-1);
 			}
 			if (format[i] == '%')
 			{
@@ -69,7 +71,9 @@ int _printf(const char *format, ...)
 					str = fn(list);
 					if (str == NULL)
 					{
-						va_end(list), free(buffer), return (-1);
+						va_end(list);
+						free(buffer);
+						return (-1);
 					}
 					if (format[i] == 'c' && str[0] == '\0')
 					{
