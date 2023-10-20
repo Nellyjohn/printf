@@ -53,12 +53,12 @@ char *_is_special_string(va_list list)
 			len += 4;
 			/*
 			 * val = str[i];
-			 if (val < 16)
-			 len++;
-			 hex_str = hex_print(val);
-			 for (; *hex_str != '\0'; hex_str++)
-			 len++;
-			 */
+			  if (val < 16)
+			  len++;
+			  hex_str = hex_print(val);
+			  for (; *hex_str != '\0'; hex_str++)
+			  len++;
+			  */
 		}
 		else
 			len++;

@@ -1,15 +1,16 @@
 #include "main.h"
 
 /**
-  * _is_hex_upper - prints a hexadecimal integer in uppercase
-  * @list: list of arguments
-  * Return: converted string
-  */
-char *_is_hex_upper(va_list list)
+ * _xhlongint - function that conver int to hex lower
+ * @list: argument list
+ * Return: converted hex
+ */
+
+char *_xhlongint(va_list list)
 {
-	int num = va_arg(list, int);
+	long int num = va_arg(list, long int);
 	char *hex_str = (char *)malloc(9);
-	const char *hex_chars = "0123456789ABCDEF";
+	const char *hex_chars = "0123456789abcdef";
 	int i;
 
 	if (hex_str == NULL)
