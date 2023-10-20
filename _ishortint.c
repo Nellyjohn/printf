@@ -24,6 +24,14 @@ char *int_to_strin(int len, short int digit)
 		return (str);
 	}
 
+	if (digit == SHRT_MIN)
+	{
+		str = malloc(7);
+		if (!str)
+			return (NULL);
+		strcpy(str, "-32768");
+		return (str);
+	}
 	str = malloc(sizeof(char) * (len + 2));
 	if (!str)
 		return (NULL);
