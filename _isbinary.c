@@ -16,6 +16,18 @@ char *_isbinary(va_list list)
 	str = malloc(sizeof(char) * 33);
 	if (!str)
 		return (NULL);
+	if (UINT_MAX == (unsigned int)val)
+	{
+		val = va_arg(list, int);
+		str[32] = '\0';
+		for (i = 31; i >= 0; i--)
+		{
+			str[i] = (val & 1) + '0';
+			val >>= 1;
+		}
+
+		return str;
+	}
 	if (val < 0)
 	{
 		str[0] = 1 + '\0';

@@ -7,7 +7,7 @@
  * Return: point to required function
  */
 
-char* (*select_function(char c, char length_modifier))(va_list)
+char* (*select_function(char c, char length_modifier, char flag))(va_list)
 {
 	int j = 0;
 
@@ -32,14 +32,28 @@ char* (*select_function(char c, char length_modifier))(va_list)
 	{
 		/**
 		 * if (chart[j].id == c)
-		  * {
-		  * return (chart[j].func);
-		  * }
-		  * j++;
-		  */
+		 * {
+		 * return (chart[j].func);
+		 * }
+		 * j++;
+		 */
 
 		if (chart[j].id == c)
 		{
+			if (flag == '#')
+			{
+				switch (c)
+				{
+					case 'o':
+						return &octal_with_prefix;
+					case 'x':
+						return &hex_with_prefix;
+					case 'X':
+						return &hex_with_prefix_upper;
+					default:
+						break;
+				}
+			}
 			/*Check for length modifiers*/
 			if (length_modifier == 'h')
 			{
