@@ -10,7 +10,7 @@ char *_xhupperlongint(va_list list);
 char *_xhupperlongint(va_list list)
 {
 	long int num = va_arg(list, long int);
-	char *hex_str = (char *)malloc(9);
+	char *hex_str = (char *)malloc(17);
 	const char *hex_chars = "0123456789ABCDEF";
 	int i, leadingZero = 1, resultIndex = 0;
 	char *result;
@@ -30,18 +30,18 @@ char *_xhupperlongint(va_list list)
 		return (NULL);
 	}
 
-	for (i = 0; i < 8; i++)
+	for (i = 0; i < 16; i++)
 	{
-		hex_str[i] = hex_chars[(num >> (28 - 4 * i)) & 0xF];
+		hex_str[i] = hex_chars[(num >> (60 - 4 * i)) & 0xF];
 	}
 
-	result = malloc(9);
+	result = malloc(17);
 	if (result == NULL)
 	{
 		return (NULL);
 	}
 
-	for (i = 0; i < 8; i++)
+	for (i = 0; i < 16; i++)
 	{
 		if (hex_str[i] == '0' && leadingZero)
 			continue;
@@ -56,6 +56,4 @@ char *_xhupperlongint(va_list list)
 	result[resultIndex] = '\0';
 
 	return result;
-
-
 }

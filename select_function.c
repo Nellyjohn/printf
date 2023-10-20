@@ -67,8 +67,9 @@ char* (*select_function(char c, char length_modifier, char flag))(va_list)
 					case 'o':
 						return (_ohshortint);
 					case 'x':
-					case 'X':
 						return (_xhshortint);
+					case 'X':
+						return (_xhuppershortint);
 				}
 			}
 			else if (length_modifier == 'l')
@@ -83,8 +84,9 @@ char* (*select_function(char c, char length_modifier, char flag))(va_list)
 					case 'o':
 						return (_ohlongint);
 					case 'x':
-					case 'X':
 						return (_xhlongint);
+					case 'X':
+						return (_xhupperlongint);
 				}
 			}
 			else
