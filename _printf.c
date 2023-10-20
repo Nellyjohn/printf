@@ -57,6 +57,7 @@ int _printf(const char *format, ...)
 	char *buffer, *str;
 	char* (*fn)(va_list);
 	char length_modifier = '\0';
+	char flag = '\0';
 
 	if (!format)
 		return (-1);
@@ -87,7 +88,12 @@ int _printf(const char *format, ...)
 			else
 			{
 				i = check_length_modifier(format, i, &length_modifier);
-				fn = select_function(format[i], length_modifier);
+				while (format[i] == '+' || format[i] == ' ' || format[i] == '#')
+                {
+                    flag = format[i];
+                    i++;
+                }
+				fn = select_function(format[i], length_modifier, flag);
 				/*fn = select_function(format[i]);*/
 				if (!fn)
 				{
@@ -111,6 +117,30 @@ int _printf(const char *format, ...)
 						len = buffer_overflow_check(buffer, len);
 						buffer[len++] = '\0', size++;
 					}
+					/* Handle flag characters*/
+                    if (flag == '+')
+                    {
+                        if (str[0] != '-')
+                        {
+                            len = buffer_overflow_check(buffer, len);
+                            buffer[len++] = '+';
+                            size++;
+                        }
+                    }
+                    else if (flag == ' ')
+                    {
+                        if (str[0] != '-' && str[0] != '+')
+                        {
+                            len = buffer_overflow_check(buffer, len);
+                            buffer[len++] = ' ';
+                            size++;
+                        }
+                    }
+                    else if (flag == '#')
+                    {
+                        /* Handle '#' flag (specific to certain conversions)
+                        / Add your implementation here if needed*/
+                    }
 					j = 0;
 					while (str[j] != '\0')
 					{
