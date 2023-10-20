@@ -18,7 +18,7 @@ typedef struct options
 } print_option;
 
 /* printf helper functions */
-char* (*select_function(char c, char length_modifier))(va_list);
+char* (*select_function(char c, char length_modifier, char flag))(va_list);
 char *make_buffer(void);
 void print_buffer(char *ptr, int len, va_list list);
 char _strlen(char *s);
@@ -50,5 +50,8 @@ char *_xhlongint(va_list list);
 int _printf(const char *format, ...);
 char *_xhupperlongint(va_list list);
 char *_xhuppershortint(va_list list);
+char *octal_with_prefix(va_list list);
+char *hex_with_prefix(va_list list);
+char *hex_with_prefix_upper(va_list list);
 
 #endif
