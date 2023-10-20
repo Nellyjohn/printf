@@ -23,6 +23,14 @@ char *int_to_str(int len, long int digit)
 		return (str);
 	}
 
+	if (digit == LONG_MIN)
+	{
+		str = malloc(21);
+		if (!str)
+			return (NULL);
+		strcpy(str, "-9223372036854775808");
+		return (str);
+	}
 	str = malloc(sizeof(char) * (len + 2));
 	if (!str)
 		return (NULL);
