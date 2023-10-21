@@ -7,7 +7,7 @@
  * Return: point to required function
  */
 
-char* (*select_function(char c, char length_modifier, char flag))(va_list)
+char *(*select_function(char c, char length_modifier, char flag))(va_list)
 {
 	int j = 0;
 
@@ -54,6 +54,20 @@ char* (*select_function(char c, char length_modifier, char flag))(va_list)
 						break;
 				}
 			}
+			if (flag == '0' && (c == 'd' || c == 'i'))
+            {
+                switch (length_modifier)
+                {
+                    case '\0':
+                        return &_izero_padded_integer;
+                    case 'h':
+                        return &_izero_padded_shortint;
+                    case 'l':
+                        return &_izero_padded_longint;
+                    default:
+                        break;
+                }
+            }
 			/*Check for length modifiers*/
 			if (length_modifier == 'h')
 			{

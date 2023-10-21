@@ -53,5 +53,8 @@ char *_xhuppershortint(va_list list);
 char *octal_with_prefix(va_list list);
 char *hex_with_prefix(va_list list);
 char *hex_with_prefix_upper(va_list list);
+char *_izero_padded_integer(va_list list);
+char *_izero_padded_shortint(va_list list);
+char *_izero_padded_longint(va_list list);
 
 #endif
