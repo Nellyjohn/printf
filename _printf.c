@@ -40,7 +40,6 @@ int check_length_modifier(const char *format, int i, char *length_modifier)
 	}
 	return (i);
 }
-
 /**
  * _printf - custome printf function
  * @format: string to be printed with it's idntifiers
@@ -51,7 +50,7 @@ int _printf(const char *format, ...)
 {
 	int len = 0;
 	int size = 0;
-	int i = 0;
+	int i = 0, width = 0;
 	int j = 0;
 	va_list list;
 	char *buffer, *str;
@@ -88,11 +87,19 @@ int _printf(const char *format, ...)
 			else
 			{
 				i = check_length_modifier(format, i, &length_modifier);
-				while (format[i] == '+' || format[i] == ' ' || format[i] == '#')
-                {
-                    flag = format[i];
-                    i++;
-                }
+				while (format[i] == '+' || format[i] == ' ' ||
+						format[i] == '#' || format[i] == '0')
+				{
+					flag = format[i];
+					i++;
+				}
+				/* Check for width specifier*/
+				i++;
+				while (format[i] >= '0' && format[i] <= '9')
+				{
+					width = width * 10 + (format[i] - '0');
+					i++;
+				}
 				fn = select_function(format[i], length_modifier, flag);
 				/*fn = select_function(format[i]);*/
 				if (!fn)
@@ -118,29 +125,35 @@ int _printf(const char *format, ...)
 						buffer[len++] = '\0', size++;
 					}
 					/* Handle flag characters*/
-                    if (flag == '+')
-                    {
-                        if (str[0] != '-')
-                        {
-                            len = buffer_overflow_check(buffer, len);
-                            buffer[len++] = '+';
-                            size++;
-                        }
-                    }
-                    else if (flag == ' ')
-                    {
-                        if (str[0] != '-' && str[0] != '+')
-                        {
-                            len = buffer_overflow_check(buffer, len);
-                            buffer[len++] = ' ';
-                            size++;
-                        }
-                    }
-                    else if (flag == '#')
-                    {
-                        /* Handle '#' flag (specific to certain conversions)
-                        / Add your implementation here if needed*/
-                    }
+					if (flag == '+')
+					{
+						if (str[0] != '-')
+						{
+							len = buffer_overflow_check(buffer, len);
+							buffer[len++] = '+';
+							size++;
+						}
+					}
+					else if (flag == ' ')
+					{
+						if (str[0] != '-' && str[0] != '+')
+						{
+							len = buffer_overflow_check(buffer, len);
+							buffer[len++] = ' ';
+							size++;
+						}
+					}
+					else if (flag == '#')
+					{
+						/**
+						 * Handle '#' flag (specific to certain conversions
+						 * Add your implementation here if needed
+						 */
+					}
+					else if (flag == '0')
+					{
+					}
+
 					j = 0;
 					while (str[j] != '\0')
 					{
