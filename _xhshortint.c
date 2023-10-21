@@ -31,8 +31,9 @@ char *_xhshortint(va_list list)
 
 	for (i = 0; i < 8; i++)
 	{
-		hex_str[i] = hex_chars[(num >> (28 - 4 * i)) & 0xF];
+		hex_str[i] = hex_chars[(num >> (12 - 4 * i)) & 0xF];
 	}
+	hex_str[4] = '\0';
 
 	result = malloc(9);
 	if (result == NULL)
@@ -55,6 +56,4 @@ char *_xhshortint(va_list list)
 	result[resultIndex] = '\0';
 
 	return result;
-
-
 }
